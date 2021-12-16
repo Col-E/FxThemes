@@ -1,0 +1,393 @@
+/* JavaFX theme by Matt Coley
+ * 
+ * Based on Hiberbee (Dark) from FlatLAF.
+ * Some liberties were taken to changing a few things.
+ */
+
+/* root, used to define colors */
+* {
+	-fx-base: rgb(12, 12, 12);
+    -fx-dark-text-color: rgb(191, 191, 191);
+    -fx-mid-text-color: rgb(141, 141, 141);
+    -fx-light-text-color: rgb(191, 191, 191);
+	-fx-accent-base: rgb(250, 170, 31);
+	-fx-accent-light: rgb(250, 189, 81);
+	-fx-accent-lighter: rgb(250, 208, 131);
+	-fx-accent: -fx-accent-base;
+	-fx-focus-color: -fx-accent;
+	-fx-border: rgb(90, 90, 90);
+	-fx-border-focus: rgb(125, 125, 125);
+	-fx-bg: rgb(50, 50, 50);
+	-fx-bg-dark: rgb(40, 40, 40);
+	-fx-bg-darker: rgb(25, 27, 30);
+	-fx-bg-light: rgb(65, 65, 65);
+	-fx-bg-lighter: rgb(77, 77, 77);
+}
+
+/* ========== Buttons ======================== */
+.check-box > .box,
+.radio-button > .radio,
+.button {
+	-fx-border-width: 1px;
+	-fx-border-color: -fx-border;
+	-fx-border-radius: 2px;
+	-fx-background-radius: 2px;
+	-fx-background-color: -fx-bg;
+}
+.check-box:hover > .box,
+.radio-button:hover > .radio,
+.button:hover {
+	/* Button-like controls get accent border when hovered */
+	-fx-border-color: -fx-accent;
+	-fx-background-color: -fx-bg-lighter;
+}
+.check-box > .box,
+.radio-button > .radio {
+	/* The box/radio are brighter than base bg */
+	-fx-background-color: -fx-bg-light;
+}
+.radio-button > .radio {
+	/* Radio buttons must be round */
+	-fx-background-radius: 20px;
+	-fx-border-radius: 20px;
+}
+.button:pressed {
+	/* Button gets dimmer when pressed compared to hover state */
+	-fx-background-color: -fx-bg-light;
+	-fx-text-fill: -fx-mid-text-color;
+}
+
+/* ========== ComboBox ======================== */
+.combo-box {
+	-fx-border-width: 1px;
+	-fx-border-color: -fx-border;
+	-fx-border-radius: 2px;
+	-fx-background-radius: 2px;
+	-fx-background-color: -fx-bg-light;
+}
+.combo-box:focused {
+	/* Brighter border on selection */
+	-fx-border-color: -fx-border-focus;
+}
+.combo-box:focused > .arrow-button {
+	/* Brighter border on selection */
+	-fx-border-color: -fx-border-focus;
+}
+.combo-box > .arrow-button {
+	-fx-background-color: -fx-bg;
+	-fx-border-width: 0 0 0 1px;
+	-fx-border-color: -fx-border;
+}
+.combo-box > .arrow-button > .arrow {
+	-fx-background-color: -fx-accent;
+}
+.combo-box:showing > .arrow-button,
+.combo-box > .arrow-button:hover {
+	/* Clearly indicate when button is hovered or menu open */
+	-fx-background-color: -fx-bg-light;
+}
+.combo-box-popup > .list-view * .list-cell:selected {
+	-fx-background-color: -fx-bg-darker;
+	-fx-text-fill: -fx-accent;
+}
+.combo-box-popup > .list-view * .list-cell:hover {
+	-fx-background-color: -fx-bg-darker;
+	-fx-text-fill: -fx-accent;
+}
+/* ========== TextField ======================== */
+.text-field {
+	-fx-border-width: 1px;
+	-fx-border-color: -fx-border;
+	-fx-border-radius: 2px;
+	-fx-background-radius: 2px;
+	-fx-background-color: -fx-bg-light;
+}
+.text-field:focused {
+	/* Text selection is black text on bright accent background */
+	-fx-border-color: -fx-border-focus;
+	-fx-highlight-fill: -fx-bg-darker;
+	-fx-highlight-text-fill: -fx-accent;
+}
+
+/* ========== Slider ======================== */
+.slider {}
+.slider > .track {
+	-fx-background-color: -fx-bg-light;
+	-fx-background-insets: 1;
+}
+.slider > .track {
+	-fx-background-color: -fx-bg-light;
+	-fx-background-insets: 1;
+}
+.slider > .axis {}
+.slider > .thumb {
+	-fx-border-width: 0;
+	-fx-background-color: -fx-accent;
+}
+.slider:pressed .thumb {
+	/* Gives thumb a halo when slider is pressed */
+	-fx-border-radius: 200px;
+	-fx-border-insets: -5px;
+	-fx-border-width: 5px;
+	-fx-border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ========== ProgressBar ======================== */
+.progress-bar {}
+.progress-bar > .track {
+	-fx-background-color: -fx-bg-light;
+	-fx-background-insets: 1px;
+}
+.progress-bar > .track {
+	-fx-background-color: -fx-bg-light;
+	-fx-background-insets: 1px;
+}
+.progress-bar > .bar {
+	-fx-border-width: 0;
+	-fx-background-color: -fx-accent;
+}
+
+/* ========== Spinner ======================== */
+.spinner {
+	-fx-border-width: 1px;
+	-fx-border-color: -fx-border;
+	-fx-border-radius: 2px;
+	-fx-background-radius: 2px;
+	-fx-background-color: -fx-bg-light;
+}
+.spinner:focused,
+.spinner:contains-focus {
+	/* Brighter border on selection */
+	-fx-border-color: -fx-border-focus;
+}
+.spinner > .text-field {
+	/* Border on left, match parent color/shape */
+	-fx-background-color: transparent;
+	-fx-background-radius: inherit;
+	-fx-border-width: 0 1px 0 0;
+}
+.spinner > .increment-arrow-button,
+.spinner > .decrement-arrow-button {
+	/* No border, just fill shape with bg color */
+	-fx-border-width: 0;
+	-fx-background-color: -fx-bg;
+	-fx-background-radius: inherit;
+}
+.spinner > .increment-arrow-button {
+	/* Border on bottom to separate from decrement arrow below */
+	-fx-border-width: 0 0 1px 0;
+	-fx-border-color: -fx-border;
+}
+.spinner:contains-focus > .increment-arrow-button {
+	/* Briger border on selection */
+	-fx-border-color: -fx-border-focus;
+}
+.spinner > .increment-arrow-button:hover,
+.spinner > .decrement-arrow-button:hover {
+	/* Clearly indicate which button is hovered */
+	-fx-background-color: -fx-bg-light;
+}
+.spinner > .increment-arrow-button > .increment-arrow,
+.spinner > .decrement-arrow-button > .decrement-arrow {
+	/* Arrow graphics are accent color */
+	-fx-background-color: -fx-accent;
+}
+.spinner > .increment-arrow-button:hover > .increment-arrow,
+.spinner > .decrement-arrow-button:hover > .decrement-arrow {
+	/* Arrow graphics when hovered are brighter accent color */
+	-fx-background-color: -fx-accent-light;
+}
+.spinner > .increment-arrow-button:pressed > .increment-arrow,
+.spinner > .decrement-arrow-button:pressed > .decrement-arrow {
+	/* Arrow graphics when pressed are brighter accent color */
+	-fx-background-color: -fx-accent-lighter;
+}
+
+/* ========== Menu ======================== */
+.menu-bar {
+	-fx-border-width: 0 0 1px 0;
+	-fx-border-color: -fx-border;
+	-fx-background-radius: 2px;
+	-fx-background-color: -fx-bg-dark;
+}
+.menu-item,
+.menu {
+	-fx-padding: 10px 20px 10px 20px;
+}
+.menu-item:focused > .label,
+.menu-item:hover > .label,
+.menu:hover > .label,
+.menu:showing > .label {
+	-fx-background-color: -fx-accent;
+	-fx-text-fill: -fx-bg-darker;
+}
+/* Menu's spawn context menu's as children */
+.context-menu {
+	-fx-padding: 0;
+	-fx-background-color: -fx-bg-dark;
+	-fx-border-color: -fx-border;
+	-fx-border-width: 1px;
+}
+/* Misc menu elements */
+.separator,
+.separator > .line {
+	-fx-background-color: -fx-border;
+}
+.separator:horizontal > .line {
+	/* Having 1px on the bottom and 0px elsewhere prevents an 
+	awkward empty space between the separator and the item above it */
+	-fx-border-width: 0 0 1px 0;
+	-fx-border-insets: 0;
+}
+
+/* ========== Lists, Tables, and Trees ======================== */
+.table-view,
+.list-view,
+.tree-view {
+	-fx-border-width: 1px;
+	-fx-border-color: -fx-border;
+	-fx-border-radius: 0px;
+	-fx-background-radius: 0px;
+	-fx-background-color: -fx-bg-dark;
+}
+.table-cell,
+.table-row-cell,
+.tree-table-row-cell,
+.tree-cell,
+.list-cell {
+	-fx-background-color: transparent;
+}
+.table-cell:focused,
+.table-row-cell:focused,
+.tree-table-row-cell:focused,
+.tree-cell:focused,
+.list-view * .list-cell:focused {
+	-fx-background-color: -fx-accent;
+	-fx-text-fill: -fx-bg-darker;
+	/* NOTE: We are explicit with the list-view being the parent of the list-cell 
+	   since multiple components re-use the list-cell, like combo-box.
+	   We do not want to override those control's existing designs. */
+}
+.tree-cell:focused > .tree-disclosure-node > .arrow,
+.tree-table-row-cell:focused > .tree-disclosure-node > .arrow {
+    -fx-background-color: -fx-bg-darker;
+}
+/* Most table elements we want to just be transparent, using the parent view color */
+.table-column,
+.filler,
+.nested-column-header,
+.column-header-background {
+	-fx-border-width: 0;
+	-fx-background-color: transparent;
+}
+/* Handle normal vs selected table row color differences */
+.table-row-cell:focused .text {
+	-fx-fill: -fx-bg-darker;
+}
+.table-row-cell .text {
+	/* The text color for table rows needs to be reset for some reason */
+	-fx-fill: -fx-light-text-color;
+}
+
+/* ========== Tabs ======================== */
+.tab-pane {
+	-fx-tab-min-width: 100px;
+	-fx-border-width: 0;
+}
+.tab-header-area {
+    -fx-padding: 0;
+}
+.tab-header-background {
+	-fx-background-color: -fx-bg;
+	-fx-border-width: 0;
+}
+.tab {
+	-fx-padding: 4px;
+	-fx-background-color: -fx-bg;
+	-fx-background-radius: 0;
+}
+/* Border formatting for top-aligned tabs --> border below tab */
+.tab-pane:top > .tab-header-area > .headers-region > .tab {
+	-fx-border-width: 0 0 2px 0;
+	-fx-border-color: -fx-bg;
+}
+/* Border formatting for bottom-aligned tabs --> border on top of tab */
+.tab-pane:bottom > .tab-header-area > .headers-region > .tab {
+	-fx-border-width: 2px 0 0 0;
+	-fx-border-color: -fx-bg;
+}
+/* Border formatting for left-aligned tabs --> border on right of tab */
+.tab-pane:left > .tab-header-area > .headers-region > .tab {
+	-fx-border-width: 0 2px 0 0;
+	-fx-border-color: -fx-bg;
+}
+/* Border formatting for right-aligned tabs --> border on left of tab */
+.tab-pane:right > .tab-header-area > .headers-region > .tab {
+	-fx-border-width: 0 0 0 2px;
+	-fx-border-color: -fx-bg;
+}
+/* Color for selected tab is same regardless of alignment */
+.tab:selected {
+	/* Because this rule is not as specific, we need IMPORTANT flag */
+    -fx-border-color: -fx-accent !IMPORTANT;
+}
+/* We don't want a focus indicator, we're using the border, and that's it */
+.tab:selected .focus-indicator {
+	-fx-border-color: transparent;
+}
+
+/* ========== Scrollbar ======================== */
+.scroll-bar {
+	-fx-background-color: transparent;
+}
+.scroll-bar .thumb {
+	-fx-background-color: -fx-bg-light;
+	-fx-background-radius: 0;
+}
+.scroll-bar .thumb:hover,
+.scroll-bar .thumb:pressed {
+	-fx-background-color: -fx-bg-lighter;
+}
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+	-fx-background-color: transparent;
+	-fx-border-width: 0;
+}
+.scroll-bar .increment-button:hover,
+.scroll-bar .decrement-button:hover {
+	-fx-background-color: transparent;
+	-fx-border-width: 0;
+}
+.scroll-bar .increment-button .increment-arrow,
+.scroll-bar .decrement-button .decrement-arrow {
+	-fx-background-color: -fx-border;
+}
+.scroll-bar .increment-button:hover .increment-arrow,
+.scroll-bar .decrement-button:hover .decrement-arrow {
+	-fx-background-color: -fx-border-focus;
+}
+
+/* ========== Variants ======================== */
+.square {
+	/* Override roundness */
+	-fx-border-radius: 0px;
+	-fx-background-radius: 0px; 
+}
+.round {
+	/* This is enough to make anything round */
+	-fx-border-radius: 200px;
+	-fx-background-radius: 200px; 
+}
+/* Need to address some edge cases */
+.round > .arrow-button  {
+	/* Single button, make the right side round */
+	-fx-background-radius: 0 200px 200px 0;
+}
+.round > .increment-arrow-button {
+	/* Top button, make the top right corner round */
+	-fx-background-radius: 0 13px 0 0;
+}	
+.round > .decrement-arrow-button {
+	/* Bottom button, make the bottom right corner round */
+	-fx-background-radius: 0 0 13px 0;
+}
